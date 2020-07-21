@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 function CardList({ list }) {
-  console.log("hola esta es mi", list);
+  
   return (
     <div>
       {list.map((item) => (

@@ -44,7 +44,6 @@ class Card extends Component {
       return <div></div>;
     }
     const { pokemon, pokemonEvolution } = this.state;
-    console.log("este ew l pkemn evol", pokemonEvolution);
 
     const hasEvol = pokemonEvolution.evolves_from_species;
 

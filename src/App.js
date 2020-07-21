@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CardList from "./components/CardList";
+import SearchBox from "./components/SearchBox";
 import "./App.css";
 
 const fetchData = async () => {
@@ -19,6 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       pokemonList: [],
+      searchfield: "",
     };
   }
 
@@ -29,13 +31,22 @@ class App extends Component {
     });
   }
 
-  render() {
-    const { pokemonList } = this.state;
+  onSearchChange = (event) => {
+    this.setState({ searchfield: event.target.value });
+  };
 
-    console.log("esta es la pokemonlist que tengo", pokemonList);
+  render() {
+  
+    const filteredPokemonName = this.state.pokemonList.filter((pokemon) => {
+      return pokemon.name
+        .toLowerCase()
+        .includes(this.state.searchfield.toLowerCase());
+    });
+
     return (
       <div className="App">
-        <CardList list={pokemonList} />
+        <SearchBox searchChange={this.onSearchChange} />
+        <CardList list={filteredPokemonName} />
       </div>
     );
   }
