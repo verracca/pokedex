@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import CardList from "./components/CardList";
 import SearchBox from "./components/SearchBox";
 import "./App.css";
@@ -37,7 +36,6 @@ class App extends Component {
   };
 
   render() {
-  
     const filteredPokemonName = this.state.pokemonList.filter((pokemon) => {
       return pokemon.name
         .toLowerCase()
@@ -45,9 +43,11 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
-        <SearchBox searchChange={this.onSearchChange} />
-        <CardList list={filteredPokemonName} />
+      <div className="app">
+        <div className="container">
+          <SearchBox searchChange={this.onSearchChange} />
+          <CardList list={filteredPokemonName} />
+        </div>
       </div>
     );
   }

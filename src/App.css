@@ -1,3 +1,113 @@
-.App {
-  text-align: center;
+html {
+  overflow-y: scroll;
+}
+
+/* App Component */
+.app {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 646px;
+  flex: 1;
+}
+
+/* SearchBox Component */
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.searchInput {
+  padding: 20px 20px;
+  flex: 1;
+  box-sizing: border-box;
+  background-color: #ffffcc;
+  color: #484848;
+}
+
+/* CardList Component */
+.cardContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.cardContainer > :nth-child(3n + 3) {
+  margin-right: 0;
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+  background-color: #f5f6f8;
+  border: 1px solid #555;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+/* Card Component */
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #dcdcdc;
+}
+
+.pokeIMG {
+  align-self: center;
+  margin: 20px;
+}
+
+.pokeID {
+  background-color: #dcd1c4;
+  color: #999966;
+  align-self: flex-start;
+  padding: 3px;
+  position: absolute;
+  font-size: small;
+}
+
+.CardContent {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.pokeName {
+  font-weight: bolder;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.pokeTypeContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pokeType {
+  margin-right: 5px;
+  color: #999966;
+  border: 1px solid #999966;
+  text-transform: uppercase;
+  font-size: x-small;
+  border-radius: 5px;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.verticalLine {
+  border-left: 3px solid #999966;
+}
+.evolution {
+  margin-left: 4px;
+}
+.evolPokemon {
+  text-transform: capitalize;
+  font-weight: lighter;
+  margin: unset;
+  font-size: larger;
 }

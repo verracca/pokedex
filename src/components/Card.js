@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./../App.css";
 
 const fetchPokemonData = async (url) => {
   try {
@@ -13,9 +14,7 @@ const fetchPokemonData = async (url) => {
 
 const fetchPokemonEvolution = async (url) => {
   try {
-    const response = await fetch(
-      url
-    );
+    const response = await fetch(url);
     const pokemonEvol = await response.json();
 
     return pokemonEvol;
@@ -48,23 +47,35 @@ class Card extends Component {
     const hasEvol = pokemonEvolution.evolves_from_species;
 
     return (
-      <div>
-        <img alt="pokemon" src={pokemon.sprites.front_default} />
-        <div>ID {pokemon.id}</div>
-        <p>{pokemon.name}</p>
-        <div>
-          {pokemon.types.map((item) => (
-            <div key={item.slot}>{item.type.name}</div>
-          ))}
+      <div className="card">
+        <div className="cardHeader">
+          <img
+            className="pokeIMG"
+            alt="pokemon"
+            src={pokemon.sprites.front_default}
+          />
+          <div className="pokeID">ID / {pokemon.id}</div>
         </div>
-        <div>
-          {hasEvol ? (
-            <div>
-              Evoluciona de {pokemonEvolution.evolves_from_species.name}
-            </div>
-          ) : (
-            <div></div>
-          )}
+        <div className="CardContent">
+          <p className="pokeName">{pokemon.name}</p>
+
+          <div className="pokeTypeContainer">
+            {pokemon.types.map((item) => (
+              <div className="pokeType" key={item.slot}>
+                {item.type.name}
+              </div>
+            ))}
+          </div>
+          <div className="verticalLine">
+            {hasEvol ? (
+              <div className="evolution">
+                Evoluciona de:
+                <p className="evolPokemon">{pokemonEvolution.evolves_from_species.name}</p>
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </div>
         </div>
       </div>
     );
