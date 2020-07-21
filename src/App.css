@@ -1,5 +1,49 @@
-html {
-  overflow-y: scroll;
+/* Background Component */
+
+.containerBack {
+  z-index: -1;
+  background-color: #f4dc26;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.topContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.bottomContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.blackSquareLeftTop {
+  border-top: 50px solid black;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid black;
+}
+
+.blackSquareRightTop {
+  border-top: 50px solid black;
+  border-right: 50px solid black;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid transparent;
+}
+
+.redSemicircleRightBottom {
+  background: #f00;
+  width: 100px;
+  height: 100px;
+  border-radius: 100% 0 0 0;
+}
+
+.redSemicircleLeftBottom {
+  background: #f00;
+  width: 100px;
+  height: 100px;
+  border-radius: 0 100% 0 0;
 }
 
 /* App Component */
@@ -25,6 +69,7 @@ html {
   box-sizing: border-box;
   background-color: #ffffcc;
   color: #484848;
+  text-align: center;
 }
 
 /* CardList Component */
@@ -33,6 +78,7 @@ html {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow-y: auto;
   /* justify-content: space-between; */
 }
 
