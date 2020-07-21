@@ -11,10 +11,10 @@ const fetchPokemonData = async (url) => {
   }
 };
 
-const fetchPokemonEvolution = async (id) => {
+const fetchPokemonEvolution = async (url) => {
   try {
     const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon-species/${id}`
+      url
     );
     const pokemonEvol = await response.json();
 
@@ -32,7 +32,7 @@ class Card extends Component {
 
   async componentDidMount() {
     const pokemon = await fetchPokemonData(this.props.url);
-    const pokemonEvol = await fetchPokemonEvolution(pokemon.id);
+    const pokemonEvol = await fetchPokemonEvolution(pokemon.species.url);
     this.setState({
       pokemon: pokemon,
       pokemonEvolution: pokemonEvol,
