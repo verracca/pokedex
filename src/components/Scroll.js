@@ -3,7 +3,7 @@ import "./../App.css";
 
 function Scroll(props) {
   return (
-    <div>
+    <div className="scrollContainer">
       <div className="scrollable">{props.children}</div>
     </div>
   );

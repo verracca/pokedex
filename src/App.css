@@ -170,7 +170,12 @@ a:visited {
 
 /* Scroll Component */
 
+.scrollContainer{
+  display: flex;
+}
+
 .scrollable {
+  flex: 1;
   height: 92vh;
   max-width: 666px;
   overflow: auto;
