@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import Pokedex from "./components/Pokedex";
 import CardDetail from "./components/CardDetail";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -14,8 +19,9 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" exact component={Pokedex} />
-          <Route path="/pokemon/:name" exact component={CardDetail} />
+          <Route path="/pokedex/" exact component={Pokedex} />
+          <Route path="/pokedex/pokemon/:name" exact component={CardDetail} />
+          <Redirect from="/" to="/pokedex/" strict/>
         </Switch>
       </Router>
     );

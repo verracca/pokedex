@@ -26,7 +26,7 @@ class Card extends Component {
     const { showDetails } = this.props;
 
     const hasEvol = pokemonEvolution.evolves_from_species;
-    const linkTo = showDetails ? "/" : `/pokemon/${pokemon.name}`;
+    const linkTo = showDetails ? "/pokedex/" : `/pokedex/pokemon/${pokemon.name}`;
 
     if (showDetails) {
       return (
