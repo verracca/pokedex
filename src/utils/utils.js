@@ -1,9 +1,21 @@
+const cache = {};
+
+const pikCache = async (url) => {
+  const cachedJson = cache[url];
+  if (cachedJson) {
+    return cachedJson;
+  }
+  const response = await fetch(url);
+  const responseJson = await response.json();
+  cache[url] = responseJson;
+  return responseJson;
+};
+
 export const fetchData = async () => {
   try {
-    const response = await fetch(
+    const pokemonList = await pikCache(
       "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"
     );
-    const pokemonList = await response.json();
     return pokemonList.results;
   } catch (error) {
     console.log(error);
@@ -12,8 +24,7 @@ export const fetchData = async () => {
 
 export const fetchPokemonData = async (name) => {
   try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-    const pokemon = await response.json();
+    const pokemon = await pikCache(`https://pokeapi.co/api/v2/pokemon/${name}`);
 
     return pokemon;
   } catch (error) {
@@ -23,8 +34,7 @@ export const fetchPokemonData = async (name) => {
 
 export const fetchPokemonEvolution = async (pokemon) => {
   try {
-    const response = await fetch(pokemon.species.url);
-    const pokemonEvol = await response.json();
+    const pokemonEvol = await pikCache(pokemon.species.url);
 
     return pokemonEvol;
   } catch (error) {
