@@ -3,7 +3,7 @@ import "./../App.css";
 
 function Scroll(props) {
   return (
-    <div className="leftSideScroll">
+    <div>
       <div className="scrollable">{props.children}</div>
     </div>
   );
