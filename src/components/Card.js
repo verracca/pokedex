@@ -1,27 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { fetchPokemonData, fetchPokemonEvolution } from "../utils/utils";
 import "./../App.css";
-
-const fetchPokemonData = async (url) => {
-  try {
-    const response = await fetch(url);
-    const pokemon = await response.json();
-
-    return pokemon;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const fetchPokemonEvolution = async (url) => {
-  try {
-    const response = await fetch(url);
-    const pokemonEvol = await response.json();
-
-    return pokemonEvol;
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 class Card extends Component {
   constructor(props) {
@@ -30,8 +10,8 @@ class Card extends Component {
   }
 
   async componentDidMount() {
-    const pokemon = await fetchPokemonData(this.props.url);
-    const pokemonEvol = await fetchPokemonEvolution(pokemon.species.url);
+    const pokemon = await fetchPokemonData(this.props.name);
+    const pokemonEvol = await fetchPokemonEvolution(pokemon);
     this.setState({
       pokemon: pokemon,
       pokemonEvolution: pokemonEvol,
@@ -43,11 +23,61 @@ class Card extends Component {
       return <div></div>;
     }
     const { pokemon, pokemonEvolution } = this.state;
+    const { showDetails } = this.props;
 
     const hasEvol = pokemonEvolution.evolves_from_species;
+    const linkTo = showDetails ? "/" : `/pokemon/${pokemon.name}`;
+
+    console.log(pokemonEvolution.flavor_text_entries[0].flavor_text);
+
+    if (showDetails) {
+      return (
+        <Link to={linkTo}>
+          <div className="cardDetailContainer">
+            <div>
+              <p className="pokePhrase">
+                {pokemonEvolution.flavor_text_entries[0].flavor_text}
+              </p>
+            </div>
+            <div className="pokeIMGDetail">
+              <img
+                alt="pokemon"
+                className="pokeimg"
+                src={pokemon.sprites.front_default}
+              />
+            </div>
+
+            <div className="CardContentDetail">
+              <div className="pokeIDDetail">ID / {pokemon.id}</div>
+              <p className="pokeNameDetail">{pokemon.name}</p>
+
+              <div className="pokeTypeContainerDetail">
+                {pokemon.types.map((item) => (
+                  <div className="pokeType" key={item.slot}>
+                    {item.type.name}
+                  </div>
+                ))}
+              </div>
+              <div>
+                {hasEvol ? (
+                  <div className="evolutionDetail">
+                    Evoluciona de:
+                    <p className="evolPokemonDetail">
+                      {pokemonEvolution.evolves_from_species.name}
+                    </p>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+              </div>
+            </div>
+          </div>
+        </Link>
+      );
+    }
 
     return (
-      <div className="card">
+      <Link to={linkTo} className="card">
         <div className="cardHeader">
           <img
             className="pokeIMG"
@@ -70,14 +100,16 @@ class Card extends Component {
             {hasEvol ? (
               <div className="evolution">
                 Evoluciona de:
-                <p className="evolPokemon">{pokemonEvolution.evolves_from_species.name}</p>
+                <p className="evolPokemon">
+                  {pokemonEvolution.evolves_from_species.name}
+                </p>
               </div>
             ) : (
               <div></div>
             )}
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

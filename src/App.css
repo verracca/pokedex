@@ -87,7 +87,6 @@ html {
   overflow-y: auto;
 }
 
-
 .card {
   width: 200px;
   height: 300px;
@@ -95,9 +94,17 @@ html {
   border: 1px solid #555;
   border-radius: 5px;
   margin-bottom: 20px;
+  display: block;
 }
 
 /* Card Component */
+
+a,
+a:hover,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
 
 .cardHeader {
   display: flex;
@@ -173,6 +180,61 @@ html {
   display: none;
 }
 
+/* CardDetail */
+
+.cardDetailContainer {
+  background-color: #ffffcc;
+  box-shadow: 0 0 0 1em #fcbb4f, 0 0 0 2em #ffce54;
+  margin: 4em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.pokeIMGDetail {
+  display: flex;
+  justify-content: center;
+}
+
+.pokeimg {
+  width: 160px;
+  height: auto;
+}
+
+.pokeIDDetail {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.pokeNameDetail {
+  font-size: xx-large;
+  font-weight: bolder;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.evolutionDetail {
+  text-align: center;
+}
+.evolPokemonDetail {
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: #f00;
+  margin-top: 0px;
+}
+
+.pokeTypeContainerDetail {
+  display: flex;
+  justify-content: center;
+}
+
+.pokePhrase {
+  text-align: center;
+  font-weight: bold;
+  color: #484848;
+  max-width: 350px;
+}
 
 /* Medium devices */
 @media only screen and (min-width: 646px) {
@@ -187,7 +249,4 @@ html {
   .card {
     margin-right: 20px;
   }
-
-
 }
-
