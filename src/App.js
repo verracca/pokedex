@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CardList from "./components/CardList";
 import SearchBox from "./components/SearchBox";
 import Background from "./components/Background";
+import Scroll from "./components/Scroll";
 import "./App.css";
 
 const fetchData = async () => {
@@ -48,7 +49,9 @@ class App extends Component {
         <Background />
         <div className="container">
           <SearchBox searchChange={this.onSearchChange} />
-          <CardList list={filteredPokemonName} />
+          <Scroll>
+            <CardList list={filteredPokemonName} />
+          </Scroll>
         </div>
       </div>
     );

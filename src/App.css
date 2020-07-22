@@ -79,7 +79,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   overflow-y: auto;
-  /* justify-content: space-between; */
 }
 
 .cardContainer > :nth-child(3n + 3) {
@@ -156,4 +155,19 @@
   font-weight: lighter;
   margin: unset;
   font-size: larger;
+}
+
+/* Scroll Component */
+
+.leftSideScroll {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scrollable {
+  height: 600px;
+  width: 666px;
+  overflow: auto;
+  float: left;
+  position: relative;
 }
