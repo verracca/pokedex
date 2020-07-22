@@ -28,8 +28,6 @@ class Card extends Component {
     const hasEvol = pokemonEvolution.evolves_from_species;
     const linkTo = showDetails ? "/" : `/pokemon/${pokemon.name}`;
 
-    console.log(pokemonEvolution.flavor_text_entries[0].flavor_text);
-
     if (showDetails) {
       return (
         <Link to={linkTo}>
