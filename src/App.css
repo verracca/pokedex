@@ -1,5 +1,6 @@
 html {
   overflow: hidden;
+  background-color: #f4dc26;
 }
 
 /* Background Component */
@@ -75,6 +76,7 @@ html {
   background-color: #ffffcc;
   color: #484848;
   text-align: center;
+  font-size: 16px;
 }
 
 /* CardList Component */
@@ -198,7 +200,7 @@ a:visited {
 
 .pokeimg {
   width: 160px;
-  height: auto;
+  height: 160px;
 }
 
 .pokeIDDetail {
