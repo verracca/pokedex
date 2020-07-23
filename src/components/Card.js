@@ -26,9 +26,6 @@ class Card extends Component {
     const { showDetails } = this.props;
 
     const hasEvol = pokemonEvolution.evolves_from_species;
-    const linkTo = showDetails
-      ? "/pokedex/"
-      : `/pokedex/pokemon/${pokemon.name}`;
 
     // el 26 es la entrada en espanol del juego pokemon x
     //(Puede fallar si se cargan todos los pokemons de la api)
@@ -36,7 +33,7 @@ class Card extends Component {
 
     if (showDetails) {
       return (
-        <Link to={linkTo}>
+        <Link to={"/pokedex/"}>
           <div className="cardDetailContainer">
             <div>
               <p className="pokePhrase">{phrase}</p>
@@ -79,7 +76,7 @@ class Card extends Component {
     }
 
     return (
-      <Link to={linkTo} className="card">
+      <Link to={`/pokedex/pokemon/${pokemon.name}`} className="card">
         <div className="cardHeader">
           <img
             className="pokeIMG"
