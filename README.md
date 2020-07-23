@@ -1,3 +1,15 @@
+##  pokedex
+
+Proyecto desarrollado con ReactJS, react-router-dom, Javascript, CSS.
+Para acceder a la demo del proyecto, haz click aqui: https://verracca.github.io/pokedex/
+
+### Comenzando 🚀
+
+Para correr el programa, luego de clonarlo, solo es necesario abrirlo en Code. 
+Npm start en la terminal y abrirlo luego en (http://localhost:3000)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -11,11 +23,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
